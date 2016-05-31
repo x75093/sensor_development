@@ -1,0 +1,279 @@
+http://iotcolumbia.weebly.com/setting-up-intel-edison/setting-up-intel-edison
+http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
+http://docs.aws.amazon.com/iot/latest/developerguide/iot-create-rule.html
+
+
+patrickkuiper$ cd /dev
+
+patrickkuiper$ screen cu.usbserial-A402EXHF 115200
+
+##############INPUT################################
+ENTER
+ENTER
+##############INPUT################################
+
+edison login: root
+
+password:
+##############INPUT################################
+narrowbreeze907
+##############INPUT################################
+
+
+root@edison:~# configure_edison --wifi
+
+##############INPUT################################
+WiFi Password
+##############INPUT################################
+
+root@edison:~# vi iot-role-trust.json
+
+##############INPUT################################
+{
+    "Version":"2012-10-17",
+    "Statement":[{
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "iot.amazonaws.com"
+        },
+        "Action": "sts:AssumeRole"
+    }]
+}
+##############INPUT################################
+
+
+
+root@edison:~# aws iam create-role --role-name my-iot-role --assume-role-policy-document file://iot-role-trust.json
+
+
+##############OUTPUT##############################
+{
+  "Role": {
+      "AssumeRolePolicyDocument": "url-encoded-json",
+      "RoleId": "AKIAIOSFODNN7EXAMPLE",
+      "CreateDate": "2015-09-30T18:43:32.821Z",
+      "RoleName": "my-iot-role",
+      "Path": "/",
+      "Arn": "arn:aws:iam::1238694611504:role/my-iot-role"
+  }
+}
+##############OUTPUT##############################
+
+
+root@edison:~# vi iot-policy.json
+
+##############INPUT################################
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Effect": "Allow",
+        "Action": "dynamodb:*",
+        "Resource": "*"
+    }]
+}
+##############INPUT################################
+
+
+root@edison:~# aws iam create-policy --policy-name my-iot-policy --policy-document file://my-iot-policy-document.json
+
+
+##############OUTPUT##############################
+{
+    "Policy": {
+        "PolicyName": "my-iot-policy",
+        "CreateDate": "2015-09-30T19:31:18.620Z",
+        "AttachmentCount": 0,
+        "IsAttachable": true,
+        "PolicyId": "ZXR6A36LTYANPAI7NJ5UV",
+        "DefaultVersionId": "v1",
+        "Path": "/",
+        "Arn": "arn:aws:iam::238694611504:policy/my-iot-policy",
+        "UpdateDate": "2015-09-30T19:31:18.620Z"
+    }
+}
+##############OUTPUT##############################
+
+
+root@edison:~# aws iam attach-role-policy --role-name my-iot-role --policy-arn "arn:aws:iam::238694611504:policy/my-iot-policy"
+
+root@edison:~# vi my-iot-role.json  /// not sure at this step
+
+
+##############INPUT################################
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::238694611504:role/myRole"
+            ]
+        }
+    ]
+}
+##############INPUT################################
+
+
+root@edison:~# vi my-rule.json  /// not sure at this step
+
+
+##############INPUT################################
+{
+  "sql": "SELECT * FROM 'iot/test'",
+  "ruleDisabled": false,
+  "awsIotSqlVersion": "2016-03-23-beta",
+  "actions": [{
+      "dynamoDB": {
+          "tableName": "my-dynamodb-table",
+          "roleArn": "arn:aws:iam::238694611504:role/my-iot-role",
+          "hashKeyField": "topic",
+          "hashKeyValue": "${topic(2)}",
+          "rangeKeyField": "timestamp",
+          "rangeKeyValue": "${timestamp()}"
+      }
+  }]
+}
+##############INPUT################################
+
+
+root@edison:~# aws iot create-topic-rule --rule-name myrule --topic-rule-payload file://my-rule.json
+
+
+##############OUTPUT##############################
+nothing
+##############OUTPUT##############################
+
+
+////////////////////testing///////////////////////
+
+
+
+root@edison:~# aws iot list-topic-rules
+
+##############OUTPUT##############################
+{
+    "rules": [
+        {
+            "topicPattern": "iot/test", 
+            "ruleArn": "arn:aws:iot:us-east-1:238694611504:rule/myrule", 
+            "ruleDisabled": false, 
+            "createdAt": 1464544404.0, 
+            "ruleName": "myrule"
+        }
+    ]
+}
+##############OUTPUT##############################
+
+
+root@edison:~# aws iot get-topic-rule --rule-name myrule
+
+
+##############OUTPUT##############################
+{
+    "ruleArn": "arn:aws:iot:us-east-1:238694611504:rule/myrule", 
+    "rule": {
+        "awsIotSqlVersion": "2016-03-23-beta", 
+        "sql": "SELECT * FROM 'iot/test'", 
+        "ruleDisabled": false, 
+        "actions": [
+            {
+                "dynamoDB": {
+                    "hashKeyField": "topic", 
+                    "roleArn": "arn:aws:iam::238694611504:role/my-iot-role", 
+                    "tableName": "my-dynamodb-table", 
+                    "hashKeyValue": "${topic(2)}", 
+                    "rangeKeyValue": "${timestamp()}", 
+                    "rangeKeyField": "timestamp"
+                }
+            }
+        ], 
+        "ruleName": "myrule"
+    }
+}
+##############OUTPUT##############################
+
+
+
+///////////Create table////////////////
+
+/////////// Reference: http://docs.aws.amazon.com/cli/latest/reference/dynamodb/create-table.html ////
+
+
+root@edison:~# aws dynamodb create-table --table-name MusicCollection --attribute-definitions AttributeName=Artist,AttributeType=S AttributeName=SongTitle,AttributeType=S --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
+
+##############OUTPUT##############################
+{
+    "TableDescription": {
+        "AttributeDefinitions": [
+            {
+                "AttributeName": "Artist",
+                "AttributeType": "S"
+            },
+            {
+                "AttributeName": "SongTitle",
+                "AttributeType": "S"
+            }
+        ],
+        "ProvisionedThroughput": {
+            "NumberOfDecreasesToday": 0,
+            "WriteCapacityUnits": 5,
+            "ReadCapacityUnits": 5
+        },
+        "TableSizeBytes": 0,
+        "TableName": "MusicCollection",
+        "TableStatus": "CREATING",
+        "KeySchema": [
+            {
+                "KeyType": "HASH",
+                "AttributeName": "Artist"
+            },
+            {
+                "KeyType": "RANGE",
+                "AttributeName": "SongTitle"
+            }
+        ],
+        "ItemCount": 0,
+        "CreationDateTime": 1421866952.062
+    }
+}
+##############OUTPUT##############################
+
+
+
+
+///////////Update table in DynamoDB////////////////
+
+/////////// Reference: http://docs.aws.amazon.com/cli/latest/reference/dynamodb/put-item.html ////
+
+root@edison:~# vi item.json
+
+##############INPUT################################
+{
+    "Artist": {"S": "No One You Know"},
+    "SongTitle": {"S": "Call Me Today"},
+    "AlbumTitle": {"S": "Somewhat Famous"}
+}
+##############INPUT################################
+
+
+root@edison:~# aws dynamodb put-item --table-name MusicCollection --item file://item.json --return-consumed-capacity TOTAL
+
+##############OUTPUT##############################
+
+##############OUTPUT##############################
+
+{
+    "Artist": {"S": "No One You Know"},
+    "SongTitle": {"S": "Call Me Today"},
+    "AlbumTitle": {"S": "Somewhat Famous"}
+}
+
+
+//Check your DynamoDB account, should have table with new item////
+
+
+
