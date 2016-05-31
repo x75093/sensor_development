@@ -1,0 +1,40 @@
+
+
+
+DOWNLOAD AN POINT TO YOCTO (PREVIOUS VERSION 2.1)
+
+CLICK THROUGH EDISON DOWNLODER AND POINT TO YOCTO
+LINK TO DOWNLOADS:
+https://software.intel.com/en-us/flashing-firmware-on-your-intel-edison-board-mac-os-x
+
+USE THESE INSTRUCTIONS
+
+http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
+and 
+https://github.com/intel-iot-devkit/aws-iot-intel
+
+navigate to
+>/dev
+then type
+>sudo screen /dev/tty.usbserial-A402IWPX 115200
+enter password:
+>root
+LOGIN TO WIFI
+>configure_edison --wifi
+select Harvard Univesity
+># [Harvard University]
+>Y
+test
+>ping www.google.com
+>ctrl -c
+
+for installing Groff and Less:
+https://github.com/intel-iot-devkit/aws-iot-intel
+
+for setting up pip:
+
+
+changed to 2.0, deleted topline of vi doc
+
+exit vi
+:q!
