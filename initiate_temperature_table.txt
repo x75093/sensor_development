@@ -1,0 +1,47 @@
+
+//////General Commands//////
+
+$ python create_temperature_table_v1.py [temperature table name]
+
+$ python create_status_table_v1.py [status table name]
+
+$ python update_status_table_v1.py [status table name] [str(node name)] [int(1 or 0)]
+
+$ python run_temp_v1.py [temperature table name] [status table name] [str(node name)] [int(max iterations)]
+
+
+////////////initiate temperature table//////////
+
+$ python create_temperature_table_v1.py temperature_table_v1
+
+#############OUTPUT#################
+Table status: CREATING
+#############OUTPUT#################
+
+////////////initiate status table///////////////
+
+$ python create_status_table_v1.py status_table_v1
+
+#############OUTPUT#################
+Table status: CREATING
+#############OUTPUT#################
+
+////////////initiate node status//////////
+
+$ python update_status_table_v1.py status_table_v1 'MD 119' 1
+
+#############OUTPUT#################
+Table status: ACTIVE
+#############OUTPUT#################
+
+////////////initiate temperature read program//////////
+
+root@edison:~# python run_temp_v1.py temperature_table_v1 status_table_v1 'MD 119' 100
+
+////////////close node status//////////
+
+$ python update_status_table_v1.py status_table_v1 'MD 119' 0
+
+#############OUTPUT#################
+Table status: ACTIVE
+#############OUTPUT#################
