@@ -16,14 +16,13 @@ Password: <insert password>
 2. Configure Edison: Device Name
 Give this Edison a unique name.
 This will be used for the access point SSID and mDNS address.
-Make it at least five characters long (leave empty to skip):<insert device name>
+Make it at least five characters long (leave empty to skip):(insert device name)
 
 3. Do you want to set up wifi? [Y or N]: Y
 Select SSID number
 Password
 
-4. ssh root@<IP address>
-
+4. ssh root@(IP address)
 Enter device password
 
 -------------------------------------------------------------------------------------
