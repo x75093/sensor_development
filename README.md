@@ -23,6 +23,7 @@ Select SSID number
 Password
 
 4. ssh root@<IP address>
+
 Enter device password
 
 -------------------------------------------------------------------------------------
