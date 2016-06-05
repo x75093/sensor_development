@@ -35,8 +35,11 @@ Setup automatic files
 5. update-rc.d startup_test.sh defaults
 Adding system startup for /etc/init.d/startup_test.sh.
 
-Doesn't work for simple example? 
+**This Doesn't work for simple example
 
 
-2nd option
+2nd option (works)
 http://shawnhymel.com/792/run-a-script-on-edison-boot/
+
+3rd options (works)
+http://www.tektyte.com/docs/docpages/edison-reference/runonstartup.html
