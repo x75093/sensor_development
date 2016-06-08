@@ -5,13 +5,18 @@ $ pip install Mako
 
 Install Github:
 Note: If you get the error Unknown package 'git', add this repo to the feeds
+
 $ vi /etc/opkg/base-feeds.conf
 
 src all     http://iotdk.intel.com/repos/2.0/iotdk/all
+
 src x86 http://iotdk.intel.com/repos/2.0/iotdk/x86
+
 src i586    http://iotdk.intel.com/repos/2.0/iotdk/i586
 
+
 $ opkg update
+
 $ opkg install git
 
 -------------------------------------------------------------------------------------
