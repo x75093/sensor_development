@@ -3,6 +3,8 @@
 Install Mako:
 $ pip install Mako
 
+-------------------------------------------------------------------------------------
+
 Install Github:
 Note: If you get the error Unknown package 'git', add this repo to the feeds
 
