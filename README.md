@@ -25,11 +25,15 @@ $ opkg install git
 
 Install nodejs
 
-npm init
+$ npm init
 
-npm install --save aws-iot-device-sdk
+$ npm install --save aws-iot-device-sdk
 
-touch main.js
+$ touch main.js
+
+To execute file
+
+$ node myfile.js
 
 -------------------------------------------------------------------------------------
 
