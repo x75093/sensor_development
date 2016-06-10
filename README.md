@@ -5,6 +5,11 @@ $ pip install Mako
 
 -------------------------------------------------------------------------------------
 
+Install Boto:
+$ pip install boto3
+
+-------------------------------------------------------------------------------------
+
 Install Github:
 Note: If you get the error Unknown package 'git', add this repo to the feeds
 
