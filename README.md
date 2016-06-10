@@ -31,6 +31,15 @@ $ npm install --save aws-iot-device-sdk
 
 $ touch main.js
 
+$ vi myfile.js
+
+Copy to file
+
+setInterval( function() {
+    console.log("Hello");
+}, 1000);
+
+
 To execute file
 
 $ node myfile.js
