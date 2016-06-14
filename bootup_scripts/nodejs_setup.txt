@@ -1,0 +1,40 @@
+Create node.js file
+vi myscript.js
+
+Insert test code 
+setInterval( function() {
+    console.log("Hello");
+}, 1000);
+
+Create Service
+vi /lib/systemd/system/myscript.service
+
+Enter the following
+[Unit]
+Description=My service
+After=xdk-daemon.service
+Requires=xdk-daemon.service
+
+[Service]
+TimeoutStartSec=1
+ExecStart=/usr/bin/node /home/root/myscript.js
+Environment="NODE_PATH=/usr/lib/node_modules/"
+Environment="NODE_ENV=production"
+Environment="AVAHI_COMPAT_NOWARN=1"
+Environment="HOME=/home/root"
+
+[Install]
+WantedBy=multi-user.target
+
+Execute the following commands
+systemctl daemon-reload
+systemctl enable myscript.service
+reboot
+
+Check Status
+systemctl status myscript.service
+
+Other useful commands
+systemctl stop myscript.service
+systemctl start myscript.service
+systemctl restart myscript.service
