@@ -73,7 +73,7 @@ while this_status == 1:
     temp = 0 
     for i in xrange(temp_loop_limit):
         humid += Decimal( th02_sensor.getHumidity())
-        temp += Decimal( th02_sensor.getTemperature() * 9.0/5.0 + 32.0;)
+        temp += Decimal( th02_sensor.getTemperature() * 9.0/5.0 + 32.0)
         
         ## Delay for different time spread readings 
         time.sleep( temp_loop_sleep )    
