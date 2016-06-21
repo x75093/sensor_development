@@ -53,7 +53,7 @@ $ node myfile.js
 
 board11 IP address: 10.251.213.151
 
-board12 IP address: 10.251.219.214
+board12 IP address: 10.251.213.202
 
 -------------------------------------------------------------------------------------
 Setup Password to enable ssh 
