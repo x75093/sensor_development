@@ -6,7 +6,8 @@ http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Pow
 
 AWS IoT Policy Configuration:
 http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html
-(my-rule = myRule)
+
+note: my-rule is myRule
 -------------------------------------------------------------------------------------
 
 Install Mako:
