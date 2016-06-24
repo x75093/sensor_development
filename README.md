@@ -1,5 +1,9 @@
 # sensor_development
 
+Initial Configuration:
+http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
+-------------------------------------------------------------------------------------
+
 Install Mako:
 $ pip install Mako
 
