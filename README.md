@@ -55,7 +55,7 @@ board11 IP address: 10.251.213.151
 
 board12 IP address: 10.251.214.115
 
-testboard IP address: 10.251.217.215
+testboard IP address: 10.251.27.138
 
 -------------------------------------------------------------------------------------
 Setup Password to enable ssh 
