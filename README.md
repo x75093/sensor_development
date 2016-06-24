@@ -4,6 +4,10 @@ Initial Configuration:
 http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
 -------------------------------------------------------------------------------------
 
+AWS IoT Policy Configuration:
+http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html
+-------------------------------------------------------------------------------------
+
 Install Mako:
 $ pip install Mako
 
