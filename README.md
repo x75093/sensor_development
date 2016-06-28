@@ -9,14 +9,21 @@ http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html
 -------------------------------------------------------------------------------------
 
 Install Screen:
-wget https://ftp.gnu.org/gnu/screen/screen-4.3.1.tar.gz
-tar -zxvf screen-4.3.1.tar.gz
-cd screen-4.3.1
-./configure
-make
-make install
-export PATH=$PATH:/usr/local/bin/
-cd ~
+$ wget https://ftp.gnu.org/gnu/screen/screen-4.3.1.tar.gz
+
+$ tar -zxvf screen-4.3.1.tar.gz
+
+$ cd screen-4.3.1
+
+$ ./configure
+
+$ make
+
+$ make install
+
+$ export PATH=$PATH:/usr/local/bin/
+
+$ cd ~
 -------------------------------------------------------------------------------------
 
 Install Boto:
