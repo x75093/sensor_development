@@ -1,5 +1,8 @@
 # sensor_development
 
+-------------------------------------------------------------------------------------
+
+
 Initial Configuration:
 http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
 -------------------------------------------------------------------------------------
@@ -37,11 +40,11 @@ Note: If you get the error Unknown package 'git', add this repo to the feeds
 $ vi /etc/opkg/base-feeds.conf
 
 src all     http://iotdk.intel.com/repos/2.0/iotdk/all
-
 src x86 http://iotdk.intel.com/repos/2.0/iotdk/x86
-
 src i586    http://iotdk.intel.com/repos/2.0/iotdk/i586
-
+src/gz all http://repo.opkg.net/edison/repo/all
+src/gz edison http://repo.opkg.net/edison/repo/edison
+src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
 
 $ opkg update
 
