@@ -1,3 +1,9 @@
+# use the following link to update version of setup tools (must be 21)
+
+https://www.versioneye.com/python/setuptools/21.0.0
+
+_____________________________________________________________________________________
+
 # sensor_development
 
 -------------------------------------------------------------------------------------
@@ -130,3 +136,5 @@ http://www.tektyte.com/docs/docpages/edison-reference/runonstartup.html
 -------------------------------------------------------------------------------------
 Commmand to create table 
 python create_temperature_table_v1.py temperature_table_v1
+
+
