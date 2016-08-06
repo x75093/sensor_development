@@ -54,6 +54,7 @@ root@edison:~# python run_temp_v2.py temp_ed1 status_ed1 edison1 10 10 5
 ////////////close node status//////////
 
 $ python update_status_table_v1.py status_table_v1 'MD 119' 0
+$ python update_status_table_v1.py status_ed1 edison1 0
 
 #############OUTPUT#################
 Table status: ACTIVE
