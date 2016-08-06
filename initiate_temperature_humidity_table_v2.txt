@@ -14,7 +14,7 @@ $ python run_temp_v2.py [temperature table name] [status table name] [str(node n
 
 NOTE: let's name our tables temp_ed1 (e.g. for board: edison1)
 
-$ python create_temperature_table_v1.py temperature_table_v1
+$ python create_temperature_table_v1.py temp_ed1
 
 #############OUTPUT#################
 Table status: CREATING
@@ -22,7 +22,9 @@ Table status: CREATING
 
 ////////////initiate status table///////////////
 
-$ python create_status_table_v1.py status_table_v1
+
+$ python create_status_table_v1.py status_ed1
+NOTE: status_ed1 for edison1
 
 #############OUTPUT#################
 Table status: CREATING
@@ -30,7 +32,16 @@ Table status: CREATING
 
 ////////////initiate node status//////////
 
-$ python update_status_table_v2.py status_table_v1 'MD 119' 1 ip_address user date
+$ python update_status_table_v2.py status_ed1 edison1 1 10.251.22.97 Aldis date
+
+update_status_table_v2.py requires 3 or 6 arguments via the command line
+1: Status Table Name
+2: Device Name (edison#)
+3: Status (1 or 0)
+4: IP Address
+5: Username
+6: Date 
+
 
 #############OUTPUT#################
 Table status: ACTIVE
@@ -38,7 +49,7 @@ Table status: ACTIVE
 
 ////////////initiate temperature read program//////////
 
-root@edison:~# python run_temp_v2.py temperature_table_v1 status_table_v1 'MD 119' 10 10 5
+root@edison:~# python run_temp_v2.py temp_ed1 status_ed1 edison1 10 10 5
 
 ////////////close node status//////////
 
