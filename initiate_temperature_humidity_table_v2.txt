@@ -12,6 +12,8 @@ $ python run_temp_v2.py [temperature table name] [status table name] [str(node n
 
 ////////////initiate temperature table//////////
 
+NOTE: let's name our tables temp_ed1 (e.g. for board: edison1)
+
 $ python create_temperature_table_v1.py temperature_table_v1
 
 #############OUTPUT#################
