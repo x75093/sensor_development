@@ -10,7 +10,6 @@ ________________________________________________________________________________
 
 -------------------------------------------------------------------------------------
 
-
 Initial Configuration:
 http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
 
@@ -21,6 +20,13 @@ then follow our steps below for nodejs folder
 
 AWS IoT Policy Configuration: note, my-rule = myRule, and always remember to copy paste our own ans
 http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html
+
+once you hit the confusing page about PassRole permissions, go to Pat K's document edit_db.txt in dynamodb folder
+
+-------------------------------------------------------------------------------------
+
+Create tables: go to document called "initiate_temperature_humidity_table_v2.txt" in general folder
+
 -------------------------------------------------------------------------------------
 
 Install Screen:
@@ -66,6 +72,17 @@ src/gz core2-32 http://repo.opkg.net/edison/repo/core2-32
 $ opkg update
 
 $ opkg install git
+
+-------------------------------------------------------------------------------------
+PIP INSTALL AWSCLI
+
+NOTE: In order to avoid 'egg_command' error when trying to "$ pip install awscli", you might need to delete the first 3 src lines in the above /etc/opkg file.
+
+Check version: 
+$ easy_install --version
+
+if setuptools is not 21.0.0, go to https://www.versioneye.com/python/setuptools/21.0.0 and grab this line to update setuptools:
+$ pip install https://pypi.python.org/packages/15/b7/a76624e5a3b18c8c1c8d33a5240b34cdabb08aef2da44b536a8b53ba1a45/setuptools-21.0.0-py2.py3-none-any.whl
 
 -------------------------------------------------------------------------------------
 
