@@ -1,13 +1,22 @@
-Create node.js file
+Update node.js file
 vi myscript.js
 
-Insert test code 
-setInterval( function() {
-    console.log("Hello");
-}, 1000);
+Update test code 
+var sys = require('sys')
+var exec = require('child_process').exec;
+
+function puts(error, stdout, stderr) { sys.puts(stdout) }
+
+var recursive = function () {
+    exec("python /home/root/sensor_development/run_temp_v3.py temp_ed<board #> status_ed1 edison<board #> 10 5", puts);
+    console.log("Updating Temperature at:");
+    var date = new Date();
+    console.log(date);
+    setTimeout(recursive, 65000);
+}
 
 Create Service
-vi /lib/systemd/system/myscript.service
+vi /lib/systemd/system/temp.service
 
 Enter the following
 [Unit]
@@ -17,7 +26,7 @@ Requires=xdk-daemon.service
 
 [Service]
 TimeoutStartSec=1
-ExecStart=/usr/bin/node /home/root/myscript.js
+ExecStart=/usr/bin/node /home/root/sensor_development/bootup_scripts/startup_temp.js
 Environment="NODE_PATH=/usr/lib/node_modules/"
 Environment="NODE_ENV=production"
 Environment="AVAHI_COMPAT_NOWARN=1"
@@ -26,15 +35,16 @@ Environment="HOME=/home/root"
 [Install]
 WantedBy=multi-user.target
 
+
 Execute the following commands
 systemctl daemon-reload
-systemctl enable myscript.service
+systemctl enable temp.service
 reboot
 
 Check Status
-systemctl status myscript.service
+systemctl status temp.service
 
 Other useful commands
-systemctl stop myscript.service
-systemctl start myscript.service
-systemctl restart myscript.service
+systemctl stop temp.service
+systemctl start temp.service
+systemctl restart temp.service
