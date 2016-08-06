@@ -1,3 +1,5 @@
+Before doing anything, make sure amazon account is set to N. Virginia (Tab at top right) so that when you're working to aws configure the board, the policy documents actually show up and attach correctly.
+
 # use the following link to update version of setup tools (must be 21)
 
 https://www.versioneye.com/python/setuptools/21.0.0
