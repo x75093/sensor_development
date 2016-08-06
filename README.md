@@ -1,9 +1,4 @@
 Before doing anything, make sure amazon account is set to N. Virginia (Tab at top right) so that when you're working to aws configure the board, the policy documents actually show up and attach correctly.
-
-# use the following link to update version of setup tools (must be 21)
-
-https://www.versioneye.com/python/setuptools/21.0.0
-
 _____________________________________________________________________________________
 
 # sensor_development
@@ -81,7 +76,13 @@ NOTE: In order to avoid 'egg_command' error when trying to "$ pip install awscli
 Check version: 
 $ easy_install --version
 
-if setuptools is not 21.0.0, go to https://www.versioneye.com/python/setuptools/21.0.0 and grab this line to update setuptools:
+if setuptools is not 21.0.0, 
+
+# use the following link to update version of setup tools (must be 21)
+
+https://www.versioneye.com/python/setuptools/21.0.0
+
+Grab this line to update setuptools:
 $ pip install https://pypi.python.org/packages/15/b7/a76624e5a3b18c8c1c8d33a5240b34cdabb08aef2da44b536a8b53ba1a45/setuptools-21.0.0-py2.py3-none-any.whl
 
 -------------------------------------------------------------------------------------
@@ -108,7 +109,10 @@ To execute file
 $ node myfile.js
 
 -------------------------------------------------------------------------------------
+Board IP Addresses 
 
+See NETS1_Data document: 
+https://docs.google.com/spreadsheets/d/1yq63MRy-mdnHkPO6iLynhxMXbEqtH9t-1t9vsIxglp8/edit?ts=57a50931#gid=0
 board11 IP address: 10.251.213.151
 
 board12 IP address: 10.251.221.208
