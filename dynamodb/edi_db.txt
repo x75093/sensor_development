@@ -74,7 +74,7 @@ root@edison:~# vi iot-policy.json
 ##############INPUT################################
 
 
-root@edison:~# aws iam create-policy --policy-name my-iot-policy --policy-document file://my-iot-policy-document.json
+root@edison:~# aws iam create-policy --policy-name my-iot-policy --policy-document file://iot-policy.json
 
 
 ##############OUTPUT##############################
