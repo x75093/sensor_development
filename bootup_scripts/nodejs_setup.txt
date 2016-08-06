@@ -1,5 +1,5 @@
 Update node.js file
-vi myscript.js
+vi startup_temp.js
 
 Update test code 
 var sys = require('sys')
