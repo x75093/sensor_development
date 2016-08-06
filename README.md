@@ -13,6 +13,9 @@ ________________________________________________________________________________
 
 Initial Configuration:
 http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
+
+basically follow through all the steps until it tells you to Use MQTT to subscribe and publish to AWS. 
+
 -------------------------------------------------------------------------------------
 
 AWS IoT Policy Configuration: note, my-rule = myRule, and always remember to copy paste our own ans
