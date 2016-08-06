@@ -49,7 +49,7 @@ Table status: ACTIVE
 
 ////////////initiate temperature read program//////////
 
-root@edison:~# python run_temp_v2.py temp_ed1 status_ed1 edison1 10 10 5
+root@edison:~# python run_temp_v2.py temp_ed1 status_ed1 edison1 10 5
 
 ////////////close node status//////////
 
