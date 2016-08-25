@@ -7,6 +7,7 @@ ________________________________________________________________________________
 
 Initial Configuration:
 http://www.seeedstudio.com/wiki/Intel%C2%AE_Edison_and_Grove_IoT_Starter_Kit_Powered_by_AWS
+http://wiki.seeedstudio.com/wiki/Grove_IoT_Starter_Kits_Powered_by_AWS
 
 basically follow through all the steps until it tells you to Use MQTT to subscribe and publish to AWS. 
 then follow our steps below for nodejs folder
