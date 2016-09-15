@@ -18,14 +18,14 @@ elif len(sys.argv) == 2:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
     region_name='us-east-1'
-    aws_access_key_id='AKIAJLOKGN5AEPGOEDTQ'
-    aws_secret_access_key='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'
+    aws_access_key_id='dfasf'
+    aws_secret_access_key='adfas'
 else:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
     region_name='us-east-1'
-    aws_access_key_id='AKIAJLOKGN5AEPGOEDTQ'
-    aws_secret_access_key='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'
+    aws_access_key_id='adfa'
+    aws_secret_access_key='adfasf'
 
 
 
