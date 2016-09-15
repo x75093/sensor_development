@@ -7,4 +7,7 @@ INPUT:
 
 EXAMPLE:
 
-python Data_Pull_14SEP16.py temperature_table_v2 myfile.csv us-east-1 AKIAJLOKGN5AEPGOEDTQ 73HYnbKkkRPGoOnIrMafQoTe8UKOWE3mJNu0T+bm
+python Data_Pull_14SEP16.py temperature_table_v2 myfile.csv us-east-1 abcd abdc
+
+
+$$$$$ When running this script your file path will automatically populate with the myfile.csv full of AWS data $$$$$$$$$
