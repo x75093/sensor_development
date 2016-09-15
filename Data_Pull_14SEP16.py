@@ -11,9 +11,9 @@ import csv
 if len(sys.argv) == 4:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
-    aws_access_key_id = str(sys.argv[3])
-    aws_secret_access_key = str(sys.argv[4])
-    region_name = str(sys.argv[5])
+    region_name = str(sys.argv[3])
+    aws_access_key_id = str(sys.argv[4])
+    aws_secret_access_key = str(sys.argv[5])
 elif len(sys.argv) == 2:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
