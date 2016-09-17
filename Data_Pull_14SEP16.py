@@ -8,24 +8,24 @@ import sys
 import numpy as np
 import csv
 
-if len(sys.argv) == 4:
+if len(sys.argv) == 6:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
     region_name = str(sys.argv[3])
     aws_access_key_id = str(sys.argv[4])
     aws_secret_access_key = str(sys.argv[5])
-elif len(sys.argv) == 2:
+elif len(sys.argv) == 3:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
     region_name='us-east-1'
-    aws_access_key_id='AKIAJLOKGN5AEPGOEDTQ'
-    aws_secret_access_key='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'
+    aws_access_key_id='junk1'
+    aws_secret_access_key='junk2'
 else:
     temp_table_name = str(sys.argv[1])
     output_table_name = str(sys.argv[2])
     region_name='us-east-1'
-    aws_access_key_id='AKIAJLOKGN5AEPGOEDTQ'
-    aws_secret_access_key='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'
+    aws_access_key_id='junk1'
+    aws_secret_access_key='junk2'
 
 
 
