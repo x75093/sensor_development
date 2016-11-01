@@ -1,0 +1,18 @@
+[Unit]
+Description=My service
+After=xdk-daemon.service
+Requires=xdk-daemon.service
+
+[Service]
+TimeoutStartSec=1
+ExecStart=/usr/bin/node /home/root/sensor_development/bootup_scripts/startup_temp.js
+Environment="NODE_PATH=/usr/lib/node_modules/"
+Environment="NODE_ENV=production"
+Environment="AVAHI_COMPAT_NOWARN=1"
+Environment="HOME=/home/root"
+User=nobody
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
